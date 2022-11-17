@@ -1,0 +1,240 @@
+@import "antd/lib/style/themes/default.less";
+@import "antd/dist/antd.less";
+@import "./colors.less";
+
+@font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@primary-color: #1e86ff;
+@typography-title-margin-bottom: 0;
+@border-radius-base: 8px;
+@border-radius-sm: 5px;
+@shadow-color: rgba(0, 0, 0, 0.05);
+@shadow-1-down: 4px 4px 40px @shadow-color;
+@border-color-split: #f4f4f4;
+@border-color-base: #e5e5e5;
+@transparent-color: transparent;
+@btn-border-radius-base: @border-radius-sm;
+@btn-border-radius-sm: @border-radius-sm;
+@btn-font-weight: 600;
+
+// Buttons
+@btn-font-weight: 600;
+@btn-default-color: @color-text-n100;
+@btn-height-base: 40px;
+
+.ant-btn > svg + span {
+  margin-left: 0.5rem;
+  vertical-align: 0.125rem;
+}
+
+// Select, Dropdown
+@select-border-color: @color-text-n10;
+
+// Menu list
+.ant-select-dropdown,
+.ant-dropdown-menu,
+.ant-dropdown-menu-root,
+.ant-dropdown-menu-vertical,
+.ant-dropdown-menu-light {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+@select-item-active-bg: @color-blue-b5;
+@select-item-selected-bg: @color-blue-b5;
+@dropdown-selected-bg: @color-blue-b5;
+.ant-select-item-option,
+.ant-dropdown-menu-item {
+  border-radius: 0.25rem;
+
+  &:not(.ant-dropdown-menu-item-danger, .ant-dropdown-menu-item-disabled, .ant-dropdown-menu-submenu-title-disabled, .ant-select-item-option-disabled) {
+    color: @color-text-n50;
+  }
+
+  &.ant-dropdown-menu-item-danger {
+    color: @color-red-r50;
+
+    &:hover {
+      color: @color-red-r50;
+      background-color: @color-red-r5;
+    }
+  }
+}
+
+// Form
+@input-height-base: 40px;
+@input-border-color: @color-text-n10;
+@form-vertical-label-padding: 0 0 0.25rem;
+@form-item-margin-bottom: 1rem;
+
+// Uppercase form label
+.ant-form-item-label {
+  text-transform: uppercase;
+}
+
+// Change Form item label required* to the right
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional) {
+  &::before {
+    content: none;
+  }
+
+  &::after {
+    display: inline-block;
+    margin-right: 4px;
+    color: @color-red-r50;
+    font-size: 14px;
+    font-family: SimSun, sans-serif;
+    line-height: 1;
+    content: "*";
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.ant-layout-header {
+  background: #fff;
+}
+
+.text-overflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ant-layout-header {
+  padding: 0;
+}
+
+.ant-menu-horizontal {
+  border-bottom: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.ant-picker {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+}
+.ant-form-item-label > label {
+  font-weight: 600;
+  font-size: 11px;
+  color: @color-text-n50;
+}
+
+@media (max-width: @screen-md) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+//notification
+.notification {
+  background-color: #e6ffee;
+  border-radius: 0.5rem;
+  border: 1px solid #27ce9f;
+  box-shadow: 0 0 5px rgb(20 149 93 / 60%), 0 0 20px rgb(20 149 93 / 16%);
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  justify-content: space-between;
+
+  .ant-notification-notice-message {
+    margin-bottom: 0;
+
+    .notification-msg {
+      color: @color-green-g90;
+      font-size: 0.875rem;
+    }
+  }
+
+  .anticon-check-circle {
+    color: @color-green-g50;
+    display: flex;
+    align-items: center;
+  }
+
+  .ant-notification-notice-close-x {
+    display: flex;
+    align-items: center;
+    color: @color-green-g50;
+    position: relative;
+  }
+
+  &.error {
+    background-color: @color-red-r5;
+    border: 1px solid @color-red-r50;
+    box-shadow: 0 0 5px rgb(158 37 31 / 40%), 0 0 20px rgb(190 43 36 / 12%);
+
+    .notification-msg {
+      color: @color-red-r90;
+      font-size: 0.875rem;
+    }
+
+    .anticon-info-circle {
+      color: @color-red-r50;
+    }
+
+    .ant-notification-notice-close-x {
+      color: @color-red-r50;
+    }
+  }
+
+  &.warning {
+    background-color: @color-yellow-y5;
+    border: 1px solid @color-yellow-y50;
+    box-shadow: 0 0 5px rgb(171 126 55 / 60%), 0 0 20px rgb(148 100 24 / 16%);
+
+    .notification-msg {
+      color: @color-yellow-y90;
+      font-size: 0.875rem;
+    }
+
+    .anticon-warning {
+      color: @color-yellow-y50;
+    }
+
+    .ant-notification-notice-close-x {
+      color: @color-yellow-y50;
+    }
+  }
+
+  &.info {
+    background-color: @color-blue-b5;
+    border: 1px solid @color-blue-b50;
+    box-shadow: 0 0 5px rgb(29 129 233 / 60%), 0 0 20px rgb(29 129 233 / 16%);
+
+    .notification-msg {
+      color: @color-blue-b50;
+      font-size: 0.875rem;
+    }
+
+    .anticon-info-circle {
+      color: @color-blue-b50;
+    }
+
+    .ant-notification-notice-close-x {
+      color: @color-blue-b50;
+    }
+  }
+}
