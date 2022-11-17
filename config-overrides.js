@@ -1,5 +1,6 @@
 const CleanCSSPlugin = require("less-plugin-clean-css");
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
+const path = require("path");
 
 const getStyleLoaders = (cssOptions, preProcessor, preProcessorOptions) => {
   const loaders = [
@@ -76,6 +77,15 @@ module.exports = function override(config, env) {
             },
           }
         ),
+      },
+      {
+        test: /\.(d.ts)$/,
+        include: [path.join(__dirname, "src")],
+        use: [
+          {
+            loader: "null-loader",
+          },
+        ],
       },
     ]
   );
