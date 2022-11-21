@@ -1,0 +1,50 @@
+@import "../../theme/colors.less";
+
+.top-header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  box-shadow: 0 0 4px rgb(0 0 0 / 10%);
+  height: 60px;
+
+  .user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-top: 6px;
+
+    .popover {
+      :global(.ant-popover-arrow) {
+        display: none;
+      }
+
+      :global(.ant-popover-inner) {
+        :global(.ant-popover-inner-content) {
+          padding: 0;
+        }
+      }
+    }
+
+    .top-header-setting {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .notification-icon {
+      font-size: 18px;
+      color: @color-text-n50;
+      cursor: pointer;
+    }
+  }
+}

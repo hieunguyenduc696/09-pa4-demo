@@ -1,0 +1,46 @@
+@import "../../theme/colors.less";
+
+.custom-card {
+  border-radius: 12px;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+  :global(.ant-card-body) {
+    padding: 0.5rem;
+
+    :global(.ant-card-meta) {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem;
+
+      :global(.ant-card-meta-avatar) {
+        img {
+          max-width: 100px;
+        }
+      }
+
+      :global(.ant-card-meta-detail) {
+        .description {
+          font-weight: 600;
+          color: @color-text-n50;
+        }
+      }
+    }
+  }
+
+  :global(.ant-card-actions) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+
+    li:first-child {
+      margin-left: 0.5rem;
+      border-right: unset !important;
+    }
+
+    :global(.ant-rate) {
+      width: max-content;
+    }
+  }
+}

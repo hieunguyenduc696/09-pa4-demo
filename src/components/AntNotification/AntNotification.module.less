@@ -1,0 +1,91 @@
+@import "../../theme/colors.less";
+
+.notification {
+  background-color: #e6ffee;
+  border-radius: 0.5rem;
+  border: 1px solid @color-green-g50;
+  box-shadow: 0 0 5px rgb(20 149 93 / 60%), 0 0 20px rgb(20 149 93 / 16%);
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  justify-content: space-between;
+
+  :global(.ant-notification-notice-message) {
+    margin-bottom: 0;
+
+    .notification-msg {
+      color: @color-green-g90;
+      font-size: 0.875rem;
+    }
+  }
+
+  :global(.anticon-check-circle) {
+    color: @color-green-g50;
+    display: flex;
+    align-items: center;
+  }
+
+  :global(.ant-notification-notice-close-x) {
+    display: flex;
+    align-items: center;
+    color: @color-green-g50;
+    position: relative;
+  }
+
+  &.error {
+    background-color: @color-red-r5;
+    border: 1px solid @color-red-r50;
+    box-shadow: 0 0 5px rgb(158 37 31 / 40%), 0 0 20px rgb(190 43 36 / 12%);
+
+    .notification-msg {
+      color: @color-red-r90;
+      font-size: 0.875rem;
+    }
+
+    :global(.anticon-info-circle) {
+      color: @color-red-r50;
+    }
+
+    :global(.ant-notification-notice-close-x) {
+      color: @color-red-r50;
+    }
+  }
+
+  &.warning {
+    background-color: @color-yellow-y5;
+    border: 1px solid @color-yellow-y50;
+    box-shadow: 0 0 5px rgb(171 126 55 / 60%), 0 0 20px rgb(148 100 24 / 16%);
+
+    .notification-msg {
+      color: @color-yellow-y90;
+      font-size: 0.875rem;
+    }
+
+    :global(.anticon-warning) {
+      color: @color-yellow-y50;
+    }
+
+    :global(.ant-notification-notice-close-x) {
+      color: @color-yellow-y50;
+    }
+  }
+
+  &.info {
+    background-color: @color-blue-b5;
+    border: 1px solid @color-blue-b50;
+    box-shadow: 0 0 5px rgb(29 129 233 / 60%), 0 0 20px rgb(29 129 233 / 16%);
+
+    .notification-msg {
+      color: @color-blue-b50;
+      font-size: 0.875rem;
+    }
+
+    :global(.anticon-info-circle) {
+      color: @color-blue-b50;
+    }
+
+    :global(.ant-notification-notice-close-x) {
+      color: @color-blue-b50;
+    }
+  }
+}

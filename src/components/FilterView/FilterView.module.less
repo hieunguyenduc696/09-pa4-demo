@@ -1,0 +1,31 @@
+@import "../../theme/colors.less";
+
+.add-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .overlay {
+    :global(.ant-dropdown-menu-item) {
+      color: @color-text-n50;
+      margin: 0 0.5rem;
+
+      :global(.ant-dropdown-menu-title-content) {
+        div {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          svg {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      &:hover {
+        background-color: @color-blue-b5;
+        border-radius: 4px;
+      }
+    }
+  }
+}

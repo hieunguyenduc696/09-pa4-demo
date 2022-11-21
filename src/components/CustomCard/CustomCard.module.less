@@ -1,0 +1,40 @@
+@import "../../theme/colors.less";
+
+.custom-card {
+  border-radius: 12px;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+
+  :global(.ant-card-head) {
+    border-bottom: 0;
+
+    :global(.ant-card-head-title) {
+      color: @color-green-g50;
+      font-weight: bold;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+  }
+
+  :global(.ant-card-cover) {
+    width: 60%;
+    height: 60%;
+    margin: auto;
+  }
+
+  :global(.ant-card-body) {
+    text-align: center;
+
+    :global(.ant-card-meta-description) {
+      line-height: 1.1;
+      font-size: 0.875rem;
+      margin: 0;
+      text-align: center;
+      color: @color-text-n50;
+    }
+  }
+
+  :global(.ant-card-actions) {
+    background-color: @color-text-n5;
+  }
+}
