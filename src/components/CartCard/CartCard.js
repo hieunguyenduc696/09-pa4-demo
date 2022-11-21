@@ -3,14 +3,77 @@ import classes from "./CartCard.module.less";
 import { EMPTY } from "../../assets";
 import { Button, Col, Row, Typography } from "antd";
 import { RiDeleteBin7Line } from "react-icons/ri";
+import { useCart } from "../../context/cart-context";
+import { useNavigate } from "react-router-dom";
+import { RootPaths } from "../../constant/paths";
 
 const { Title, Text } = Typography;
 
-export const CartCard = ({ items, totalItems, totalPrice }) => {
+export const CartCard = ({ handleClose }) => {
+  const navigate = useNavigate();
+  const { cart, setCart } = useCart();
+
+  const { items, totalItems, totalPrice } = cart;
+
   const title =
     totalItems === 0
       ? "Bạn không có sản phẩm nào trong giỏ hàng."
       : `Bạn đang có ${totalItems} sản phẩm trong giỏ hàng.`;
+
+  const handleSubtractItem = (item) => {
+    const foundIndex = items.findIndex((i) => i.id === item.id);
+    const newCart = { ...cart };
+    if (foundIndex >= 0) {
+      const newQuantity = items[foundIndex].quantity - 1;
+
+      if (newQuantity === 0) {
+        newCart.totalItems--;
+        newCart.items = newCart.items.filter((i) => i.id !== item.id);
+      } else {
+        newCart.items[foundIndex].quantity = newQuantity;
+      }
+      newCart.totalPrice -= Number(item.details.price);
+    }
+
+    setCart(newCart);
+  };
+
+  const handleAddItem = (item) => {
+    const foundIndex = items.findIndex((i) => i.id === item.id);
+    const newCart = { ...cart };
+    if (foundIndex >= 0) {
+      const newQuantity = items[foundIndex].quantity + 1;
+
+      newCart.items[foundIndex].quantity = newQuantity;
+
+      newCart.totalPrice += Number(item.details.price);
+    }
+
+    setCart(newCart);
+  };
+
+  const handleRemoveItem = (item) => {
+    const foundIndex = items.findIndex((i) => i.id === item.id);
+    const newCart = { ...cart };
+
+    if (foundIndex >= 0) {
+      newCart.items = newCart.items.filter((i) => i.id !== item.id);
+      newCart.totalItems--;
+      newCart.totalPrice -= Number(item.details.price * item.quantity);
+    }
+
+    setCart(newCart);
+  };
+
+  const handleBuyClick = () => {
+    handleClose();
+    navigate(RootPaths.BUY, { replace: true });
+  };
+
+  const handlePayment = () => {
+    handleClose();
+    navigate(RootPaths.PAYMENT);
+  };
 
   return (
     <div className={classes["cart-card"]}>
@@ -21,7 +84,9 @@ export const CartCard = ({ items, totalItems, totalPrice }) => {
         <>
           <img alt={title} src={EMPTY} />
           <div className={classes.actions}>
-            <Button type="primary">Mua sắm</Button>
+            <Button type="primary" onClick={handleBuyClick}>
+              Mua sắm
+            </Button>
           </div>
         </>
       ) : (
@@ -46,11 +111,19 @@ export const CartCard = ({ items, totalItems, totalPrice }) => {
                     </Text>
                   </div>
                   <div style={{ marginTop: "0.2rem" }}>
-                    <Button size="small" shape="circle">
+                    <Button
+                      size="small"
+                      shape="circle"
+                      onClick={() => handleSubtractItem(item)}
+                    >
                       -
                     </Button>
                     <Text style={{ margin: "0.6rem" }}>{item.quantity}</Text>
-                    <Button size="small" shape="circle">
+                    <Button
+                      size="small"
+                      shape="circle"
+                      onClick={() => handleAddItem(item)}
+                    >
                       +
                     </Button>
                   </div>
@@ -63,6 +136,7 @@ export const CartCard = ({ items, totalItems, totalPrice }) => {
                       shape="circle"
                       size="medium"
                       style={{ marginBottom: "6px" }}
+                      onClick={() => handleRemoveItem(item)}
                     />
                   </div>
                   <div>
@@ -72,11 +146,13 @@ export const CartCard = ({ items, totalItems, totalPrice }) => {
               </Row>
             ))}
           </div>
-          <div className={classes.actions}>
+          <div className={classes["actions-price"]}>
             <Text strong>
               Tổng tiền: <Text type="danger"> {totalPrice} VND</Text>
             </Text>
-            <Button type="primary">Thanh toán</Button>
+            <Button type="primary" onClick={handlePayment}>
+              Thanh toán
+            </Button>
           </div>
         </>
       )}

@@ -5,6 +5,7 @@ import {
   HelpRoutes,
   SellRoutes,
   GiveRoutes,
+  PaymentRoutes,
 } from "./pages";
 import { CustomNavigate } from "./components";
 import MainLayout from "./layout/MainLayout";
@@ -18,6 +19,7 @@ export const MainLayoutRoutes = {
     ...GiveRoutes,
     ...SellRoutes,
     ...BuyRoutes,
+    ...PaymentRoutes,
     ...HelpRoutes,
   ],
 };

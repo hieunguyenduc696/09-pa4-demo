@@ -3,3 +3,4 @@ export * from "./Buy";
 export * from "./Sell";
 export * from "./Give";
 export * from "./Help";
+export * from "./Payment";

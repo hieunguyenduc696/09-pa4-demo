@@ -4,11 +4,13 @@ import { Col, Row, Typography } from "antd";
 import { CustomPagination, FilterView, ProductCard } from "../../components";
 import { data } from "./Buy.config";
 import { configuration } from "../../config";
+import { category } from "../../constant/category";
 
 const { Title } = Typography;
 
 export const Buy = () => {
   const [page, setPage] = useState(1);
+  const [filterValue, setFilterValue] = useState(category.SECOND_HAND);
 
   const sliceData = (d) => {
     return d.slice(
@@ -18,14 +20,18 @@ export const Buy = () => {
     );
   };
 
+  const filterData = (d, category) => {
+    return d.filter((item) => item.category === category);
+  };
+
   return (
     <div>
       <div className={classes["top-section"]}>
-        <Title level={4}>Áo quần 2-hand</Title>
-        <FilterView />
+        <Title level={4}>{filterValue}</Title>
+        <FilterView filterValue={filterValue} setFilterValue={setFilterValue} />
       </div>
       <Row gutter={[24, 24]}>
-        {sliceData(data).map((product) => (
+        {filterData(sliceData(data), filterValue).map((product) => (
           <Col span={6} key={product.id}>
             <ProductCard
               title={product.title}
@@ -40,7 +46,7 @@ export const Buy = () => {
       </Row>
       <CustomPagination
         defaultCurrent={page}
-        total={data.length}
+        total={filterData(sliceData(data), filterValue).length}
         setPage={setPage}
         page={page}
         className={classes["pagination"]}

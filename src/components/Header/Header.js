@@ -34,6 +34,10 @@ export const Header = () => {
     setVisible(newOpen);
   };
 
+  const handleClose = () => {
+    setVisible(false);
+  };
+
   return (
     <Layout.Header className={classes["top-header"]}>
       <Space>
@@ -61,13 +65,7 @@ export const Header = () => {
             open={visible}
             placement="bottomRight"
             getPopupContainer={() => document.getElementById("popover")}
-            content={
-              <CartCard
-                items={cart.items}
-                totalItems={cart.totalItems}
-                totalPrice={cart.totalPrice}
-              />
-            }
+            content={<CartCard handleClose={handleClose} />}
           >
             <Badge count={cart.totalItems} size="small">
               <RiLuggageCartLine

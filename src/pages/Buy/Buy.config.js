@@ -1,4 +1,5 @@
 import { JEAN } from "../../assets";
+import { category } from "../../constant/category";
 
 export const data = [
   {
@@ -8,6 +9,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021624",
     price: "425.000",
+    category: category.SECOND_HAND,
   },
   {
     title: "Quần jean nam",
@@ -16,6 +18,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021625",
     price: "425.000",
+    category: category.BOOK,
   },
   {
     title: "Quần jean nam",
@@ -24,6 +27,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021626",
     price: "425.000",
+    category: category.GIVE,
   },
   {
     title: "Quần jean nam",
@@ -32,6 +36,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021627",
     price: "425.000",
+    category: category.SECOND_HAND,
   },
   {
     title: "Quần jean nam",
@@ -40,6 +45,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021628",
     price: "425.000",
+    category: category.SECOND_HAND,
   },
   {
     title: "Quần jean nam",
@@ -48,6 +54,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021629",
     price: "425.000",
+    category: category.GIVE,
   },
   {
     title: "Quần jean nam",
@@ -56,6 +63,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021630",
     price: "425.000",
+    category: category.BOOK,
   },
   {
     title: "Quần jean nam",
@@ -64,6 +72,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021631",
     price: "425.000",
+    category: category.GIVE,
   },
   {
     title: "Quần jean nam",
@@ -72,5 +81,6 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021632",
     price: "425.000",
+    category: category.SECOND_HAND,
   },
 ];

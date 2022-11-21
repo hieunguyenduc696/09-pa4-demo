@@ -23,20 +23,22 @@ const MainLayout = () => {
     () =>
       MainLayoutRoutes.children
         ?.map(({ menuIcon: Icon, path, menuLabel }) => {
-          return {
-            key: path,
-            label: null,
-            className: classes["menu-item"],
-            onClick: onClickMenu,
-            icon: (
-              <Link to={path} className={classes["menu-item-ctn"]}>
-                <div className={classes["menu-item-icon"]}>
-                  {Icon && <Icon fontSize={24} />}
-                </div>
-                <p className={classes["menu-item-text"]}>{menuLabel}</p>
-              </Link>
-            ),
-          };
+          return (
+            menuLabel && {
+              key: path,
+              label: null,
+              className: classes["menu-item"],
+              onClick: onClickMenu,
+              icon: (
+                <Link to={path} className={classes["menu-item-ctn"]}>
+                  <div className={classes["menu-item-icon"]}>
+                    {Icon && <Icon fontSize={24} />}
+                  </div>
+                  <p className={classes["menu-item-text"]}>{menuLabel}</p>
+                </Link>
+              ),
+            }
+          );
         })
         .filter(Boolean),
     []

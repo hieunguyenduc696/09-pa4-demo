@@ -4,10 +4,14 @@ import { Button, Dropdown } from "antd";
 import { RiFilter3Line } from "react-icons/ri";
 import { items } from "./FilterView.config";
 
-export const FilterView = () => {
+export const FilterView = ({ filterValue, setFilterValue }) => {
+  const onClick = ({ key }) => {
+    setFilterValue(key);
+  };
+
   return (
     <Dropdown
-      menu={{ items }}
+      menu={{ items, onClick, activeKey: filterValue }}
       placement="bottomRight"
       trigger={["click"]}
       overlayClassName={classes.overlay}

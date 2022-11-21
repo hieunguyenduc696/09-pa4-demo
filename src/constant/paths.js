@@ -4,4 +4,5 @@ export const RootPaths = {
   BUY: "/buy",
   GIVE: "/give",
   HELP: "/help",
+  PAYMENT: "/payment",
 };

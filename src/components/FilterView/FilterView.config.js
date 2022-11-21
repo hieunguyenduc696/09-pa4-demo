@@ -1,8 +1,9 @@
 import { RiBookOpenLine, RiTShirt2Line } from "react-icons/ri";
+import { category } from "../../constant/category";
 
 export const items = [
   {
-    key: "1",
+    key: category.SECOND_HAND,
     label: (
       <div>
         <RiTShirt2Line />
@@ -11,7 +12,7 @@ export const items = [
     ),
   },
   {
-    key: "2",
+    key: category.GIVE,
     label: (
       <div>
         <RiTShirt2Line />
@@ -20,7 +21,7 @@ export const items = [
     ),
   },
   {
-    key: "3",
+    key: category.BOOK,
     label: (
       <div>
         <RiBookOpenLine />
