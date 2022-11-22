@@ -1,5 +1,5 @@
 import { JEAN } from "../../assets";
-import { category } from "../../constant/category";
+import { category } from "../../constant";
 
 export const data = [
   {

@@ -9,7 +9,7 @@ import { Confirmation } from "./Confirmation";
 
 export const Payment = () => {
   const { cart } = useCart();
-  const [current, setCurrent] = useState(2);
+  const [current, setCurrent] = useState(0);
 
   const handleNext = () => {
     setCurrent((prev) => ++prev);

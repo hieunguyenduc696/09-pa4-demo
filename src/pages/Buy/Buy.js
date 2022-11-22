@@ -4,7 +4,7 @@ import { Col, Row, Typography } from "antd";
 import { CustomPagination, FilterView, ProductCard } from "../../components";
 import { data } from "./Buy.config";
 import { configuration } from "../../config";
-import { category } from "../../constant/category";
+import { category } from "../../constant";
 
 const { Title } = Typography;
 

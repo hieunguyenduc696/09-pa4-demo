@@ -5,6 +5,7 @@ import { formatter } from "../../../utils";
 import { useCart } from "../../../context/cart-context";
 import { useUser } from "../../../context/user-context";
 import bigDecimal from "js-big-decimal";
+import { paymentType, shippingType } from "../../../constant";
 
 const { Title, Text } = Typography;
 const { Item } = Form;
@@ -76,8 +77,8 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
               <Select
                 placeholder="Chọn phương thức giao hàng"
                 options={[
-                  { label: "Giao hàng nhanh", value: "fast" },
-                  { label: "Giao hàng tiết kiệm", value: "save" },
+                  { label: "Giao hàng nhanh", value: shippingType.FAST },
+                  { label: "Giao hàng tiết kiệm", value: shippingType.SAVE },
                 ]}
               />
             </Item>
@@ -97,8 +98,8 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
               <Select
                 placeholder="Chọn phương thức thanh toán"
                 options={[
-                  { label: "Tiền mặt", value: "cash" },
-                  { label: "Thẻ tín dụng", value: "credit" },
+                  { label: "Tiền mặt", value: paymentType.CASH },
+                  { label: "Thẻ tín dụng", value: paymentType.CREDIT },
                 ]}
               />
             </Item>

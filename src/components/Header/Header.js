@@ -27,7 +27,7 @@ export const Header = () => {
 
   const breadcrumb = useMemo(
     () => generateBreadcrumb(routesRecord, location.pathname),
-    [location.pathname]
+    [location.pathname, routesRecord]
   );
 
   const handleOpenChange = (newOpen) => {

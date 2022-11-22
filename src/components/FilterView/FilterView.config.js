@@ -1,5 +1,5 @@
 import { RiBookOpenLine, RiTShirt2Line } from "react-icons/ri";
-import { category } from "../../constant/category";
+import { category } from "../../constant";
 
 export const items = [
   {

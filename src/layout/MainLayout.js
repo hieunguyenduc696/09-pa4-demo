@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import classes from "./MainLayout.module.less";
 import { Header } from "../components";
 import { Layout, Menu, Typography } from "antd";
@@ -15,9 +15,12 @@ const MainLayout = () => {
   const location = useLocation();
   const [current, setCurrent] = useState(getRootPath(location.pathname));
 
-  const onClickMenu = (e) => {
-    navigate(e.key);
-  };
+  const onClickMenu = useCallback(
+    (e) => {
+      navigate(e.key);
+    },
+    [navigate]
+  );
 
   const menus = useMemo(
     () =>
@@ -41,7 +44,7 @@ const MainLayout = () => {
           );
         })
         .filter(Boolean),
-    []
+    [onClickMenu]
   );
 
   useEffect(() => {
