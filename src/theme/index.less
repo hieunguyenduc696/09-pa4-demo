@@ -67,29 +67,6 @@
 @form-vertical-label-padding: 0 0 0.25rem;
 @form-item-margin-bottom: 1rem;
 
-// Uppercase form label
-.ant-form-item-label {
-  text-transform: uppercase;
-}
-
-// Change Form item label required* to the right
-.ant-form-item-label
-  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional) {
-  &::before {
-    content: none;
-  }
-
-  &::after {
-    display: inline-block;
-    margin-right: 4px;
-    color: @color-red-r50;
-    font-size: 14px;
-    font-family: SimSun, sans-serif;
-    line-height: 1;
-    content: "*";
-  }
-}
-
 html,
 body,
 #root {

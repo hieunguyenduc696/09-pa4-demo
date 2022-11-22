@@ -6,12 +6,12 @@ const { createContext, useContext } = require("react");
 //     details: Product
 // }[]
 
-const defaultValue = {
+export const defaultCartValue = {
   items: [],
   totalItems: 0,
   totalPrice: 0,
 };
 
-export const CartContext = createContext(defaultValue);
+export const CartContext = createContext(defaultCartValue);
 
 export const useCart = () => useContext(CartContext);

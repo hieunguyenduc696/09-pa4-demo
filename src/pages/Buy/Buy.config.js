@@ -8,7 +8,7 @@ export const data = [
     src: JEAN,
     name: "Jim Form Slimfit",
     id: "0021624",
-    price: "425.000",
+    price: 425000,
     category: category.SECOND_HAND,
   },
   {
@@ -17,7 +17,7 @@ export const data = [
     src: JEAN,
     name: "Jim Form Slimfit",
     id: "0021625",
-    price: "425.000",
+    price: 425000,
     category: category.BOOK,
   },
   {
@@ -26,7 +26,7 @@ export const data = [
     src: JEAN,
     name: "Jim Form Slimfit",
     id: "0021626",
-    price: "425.000",
+    price: 425000,
     category: category.GIVE,
   },
   {
@@ -35,7 +35,7 @@ export const data = [
     src: JEAN,
     name: "Jim Form Slimfit",
     id: "0021627",
-    price: "425.000",
+    price: 425000,
     category: category.SECOND_HAND,
   },
   {
@@ -44,7 +44,7 @@ export const data = [
     src: JEAN,
     name: "Jim Form Slimfit",
     id: "0021628",
-    price: "425.000",
+    price: 425000,
     category: category.SECOND_HAND,
   },
   {
@@ -53,7 +53,7 @@ export const data = [
     src: JEAN,
     name: "Jim Form Slimfit",
     id: "0021629",
-    price: "425.000",
+    price: 425000,
     category: category.GIVE,
   },
   {
@@ -62,7 +62,7 @@ export const data = [
     src: JEAN,
     name: "Jim Form Slimfit",
     id: "0021630",
-    price: "425.000",
+    price: 425000,
     category: category.BOOK,
   },
   {
@@ -71,7 +71,7 @@ export const data = [
     src: JEAN,
     name: "Jim Form Slimfit",
     id: "0021631",
-    price: "425.000",
+    price: 425000,
     category: category.GIVE,
   },
   {
@@ -80,7 +80,7 @@ export const data = [
     src: JEAN,
     name: "Jim Form Slimfit",
     id: "0021632",
-    price: "425.000",
+    price: 425000,
     category: category.SECOND_HAND,
   },
 ];

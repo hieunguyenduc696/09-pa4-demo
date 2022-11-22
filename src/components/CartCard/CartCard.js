@@ -6,6 +6,7 @@ import { RiDeleteBin7Line } from "react-icons/ri";
 import { useCart } from "../../context/cart-context";
 import { useNavigate } from "react-router-dom";
 import { RootPaths } from "../../constant/paths";
+import { formatter } from "../../utils/number";
 
 const { Title, Text } = Typography;
 
@@ -140,7 +141,9 @@ export const CartCard = ({ handleClose }) => {
                     />
                   </div>
                   <div>
-                    <Text type="danger">{item.details.price} VND</Text>
+                    <Text type="danger">
+                      {formatter.format(item.details.price)}
+                    </Text>
                   </div>
                 </Col>
               </Row>
@@ -148,7 +151,8 @@ export const CartCard = ({ handleClose }) => {
           </div>
           <div className={classes["actions-price"]}>
             <Text strong>
-              Tổng tiền: <Text type="danger"> {totalPrice} VND</Text>
+              Tổng tiền:{" "}
+              <Text type="danger"> {formatter.format(totalPrice)}</Text>
             </Text>
             <Button type="primary" onClick={handlePayment}>
               Thanh toán

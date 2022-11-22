@@ -1,0 +1,19 @@
+@import "../../theme/colors.less";
+
+.container {
+  max-width: 57rem;
+  margin: auto;
+
+  :global(.ant-steps-item-process),
+  :global(.ant-steps-item-wait) {
+    :global(.ant-steps-item-container) {
+      :global(.ant-steps-item-content) {
+        :global(.ant-steps-item-title) {
+          &::after {
+            background-color: @color-text-n20;
+          }
+        }
+      }
+    }
+  }
+}

@@ -26513,6 +26513,32 @@ div.ant-typography-edit-content.ant-typography-rtl {
   margin: 8px 0 0;
   padding: 0;
 }
-.ant-dropdown-menu-item-active {
-  background-color: #ebf4ff;
+.ant-form-item-row {
+  flex-direction: column;
+}
+.ant-form-item-label {
+  text-transform: uppercase;
+}
+.ant-form-item-label > label {
+  font-weight: 600;
+  font-size: 11px;
+  height: 25px;
+  line-height: 16px;
+  display: flex;
+  align-items: end;
+  text-transform: uppercase;
+  color: #566371;
+  margin-bottom: 2px;
+}
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  content: none;
+}
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::after {
+  display: inline-block;
+  margin-right: 4px;
+  color: #ff5963;
+  font-size: 14px;
+  font-family: SimSun, sans-serif;
+  line-height: 1;
+  content: "*";
 }

@@ -35,3 +35,42 @@
 @input-border-color: @color-text-n20;
 @form-vertical-label-padding: 0 0 0.25rem;
 @form-item-margin-bottom: 1rem;
+
+.ant-form-item-row {
+  flex-direction: column;
+}
+
+// Uppercase form label
+.ant-form-item-label {
+  text-transform: uppercase;
+}
+
+.ant-form-item-label > label {
+  font-weight: 600;
+  font-size: 11px;
+  height: 25px;
+  line-height: 16px;
+  display: flex;
+  align-items: end;
+  text-transform: uppercase;
+  color: @color-text-n50;
+  margin-bottom: 2px;
+}
+
+// Change Form item label required* to the right
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional) {
+  &::before {
+    content: none;
+  }
+
+  &::after {
+    display: inline-block;
+    margin-right: 4px;
+    color: @color-red-r50;
+    font-size: 14px;
+    font-family: SimSun, sans-serif;
+    line-height: 1;
+    content: "*";
+  }
+}

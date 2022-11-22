@@ -3,6 +3,7 @@ import classes from "./ProductCard.module.less";
 import { Button, Card, Rate, Typography } from "antd";
 import { useCart } from "../../context/cart-context";
 import { openNotification } from "../AntNotification";
+import { formatter } from "../../utils/number";
 
 const { Meta } = Card;
 const { Title, Text } = Typography;
@@ -70,7 +71,7 @@ export const ProductCard = ({ title, src, description, name, id, price }) => {
             </div>
             <div>{name}</div>
             <div>Mã số: {id}</div>
-            <Text type="danger">{price} VND</Text>
+            <Text type="danger">{formatter.format(price)}</Text>
           </>
         }
       />
