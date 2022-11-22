@@ -43,7 +43,7 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
           <Col span={12}>
             <Item
               name="phone"
-              label="Số điẹn thoại"
+              label="Số điện thoại"
               required
               rules={[
                 { required: true, message: "Vui lòng nhập số điện thoại" },

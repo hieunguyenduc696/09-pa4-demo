@@ -8,3 +8,5 @@ export * from "./FilterView";
 export * from "./CustomPagination";
 export * from "./CartCard";
 export * from "./AntNotification";
+export * from "./FileUploader";
+export * from "./CustomModal";

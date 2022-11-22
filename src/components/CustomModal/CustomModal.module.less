@@ -1,0 +1,39 @@
+@import "../../theme/colors.less";
+
+.custom-modal {
+  :global(.ant-modal-header) {
+    :global(.ant-modal-title) {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 28px;
+      color: @color-text-n50;
+    }
+  }
+
+  :global(.ant-modal-body) {
+    padding: 20px 20px;
+    .text-area {
+      margin: 0;
+    }
+  }
+
+  :global(.ant-modal-footer) {
+    overflow: hidden;
+    background: @color-text-n5;
+
+    :global(.ant-btn) {
+      min-width: 5rem;
+      height: 2.5rem;
+    }
+    :global(.ant-btn-default) {
+      color: @color-text-n100;
+      background: transparent;
+      border: 1px solid @color-text-n20;
+    }
+    :global(.ant-btn-primary) {
+      color: @color-text-white;
+      background: @color-green-g50;
+      outline: none;
+    }
+  }
+}
