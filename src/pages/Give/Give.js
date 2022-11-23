@@ -76,27 +76,9 @@ export const Give = () => {
             onError={handleError}
             maxFileUpload={5}
           />
-
-          <Title level={4} className={classes.introduction}>
-            LÀM THẾ NÀO ĐỂ TÔI CHO TẶNG?
-          </Title>
-
-          <List
-            itemLayout="horizontal"
-            dataSource={GiveData}
-            className={classes.list}
-            renderItem={(item) => (
-              <List.Item>
-                <List.Item.Meta
-                  avatar={<img src={item.image} alt="step" />}
-                  title={<Title level={5}>{item.title}</Title>}
-                />
-              </List.Item>
-            )}
-          />
         </Col>
         <Col span={12}>
-          <Form form={form} onFinish={onFinish}>
+          <Form form={form} onFinish={onFinish} layout="vertical">
             <Row gutter={24}>
               <Col span={12}>
                 <Item
@@ -146,14 +128,29 @@ export const Give = () => {
                 </Item>
               </Col>
             </Row>
-            <Button
-              type="primary"
-              onClick={form.submit}
-              style={{ float: "right" }}
-            >
-              Cho tặng
-            </Button>
+            <div style={{ textAlign: "end", marginBottom: "1rem" }}>
+              <Button type="primary" onClick={form.submit}>
+                Cho tặng
+              </Button>
+            </div>
           </Form>
+          <Title level={5} className={classes.introduction}>
+            LÀM THẾ NÀO ĐỂ TÔI CHO TẶNG?
+          </Title>
+
+          <List
+            itemLayout="horizontal"
+            dataSource={GiveData}
+            className={classes.list}
+            renderItem={(item) => (
+              <List.Item>
+                <List.Item.Meta
+                  avatar={<img src={item.image} alt="step" />}
+                  title={<Title level={5}>{item.title}</Title>}
+                />
+              </List.Item>
+            )}
+          />
         </Col>
       </Row>
       <GiveSuccessModal

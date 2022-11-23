@@ -46,9 +46,6 @@ module.exports = function override(config, env) {
           {
             importLoaders: 3,
             sourceMap: true,
-            modules: {
-              getLocalIdent: getCSSModuleLocalIdent,
-            },
           },
           "less-loader",
           {

@@ -1,4 +1,5 @@
 @import "../../theme/colors.less";
+@import (reference) "../../theme/mixins.less";
 
 .file-uploader {
   margin-bottom: 1rem;
@@ -18,6 +19,7 @@
   .upload-items {
     max-height: 400px;
     overflow-y: auto;
+    &:extend(.custom-scroll-bar-table all);
   }
 }
 

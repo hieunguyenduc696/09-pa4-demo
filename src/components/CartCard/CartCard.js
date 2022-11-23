@@ -55,15 +55,15 @@ export const CartCard = ({ handleClose }) => {
 
   const handleRemoveItem = (item) => {
     const foundIndex = items.findIndex((i) => i.id === item.id);
-    const newCart = { ...cart };
 
-    if (foundIndex >= 0) {
-      newCart.items = newCart.items.filter((i) => i.id !== item.id);
-      newCart.totalItems--;
-      newCart.totalPrice -= Number(item.details.price * item.quantity);
-    }
+    if (foundIndex < 0) return;
 
-    setCart(newCart);
+    setCart({
+      ...cart,
+      items: cart.items.filter((i) => i.id !== item.id),
+      totalItems: cart.totalItems - 1,
+      totalPrice: cart.totalPrice - Number(item.details.price * item.quantity),
+    });
   };
 
   const handleBuyClick = () => {

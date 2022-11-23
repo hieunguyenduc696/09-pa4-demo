@@ -1,7 +1,4 @@
-import "antd/dist/antd.min.css";
-import "./theme/antd.css";
 import "./theme/index.less";
-import "./theme/colors.less";
 
 import React from "react";
 import ReactDOM from "react-dom/client";

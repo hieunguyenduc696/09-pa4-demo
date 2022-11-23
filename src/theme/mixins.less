@@ -1,0 +1,25 @@
+.custom-scroll-bar-track() {
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: @color-text-n20;
+    border-radius: 10px;
+  }
+}
+
+.custom-scroll-bar-table {
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  .custom-scroll-bar-track();
+}
+
+.custom-scroll-bar-form {
+  &::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+  }
+  .custom-scroll-bar-track();
+}

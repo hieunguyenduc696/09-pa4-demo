@@ -202,7 +202,7 @@ const FileUploader = forwardRef(
                 <RiUploadCloudFill />
               </p>
               <p className="ant-upload-hint">
-                Drag & Drop your files (docx., .pdf) here or browse Files
+                Kéo thả ảnh vào đây hoặc nhấn để chọn ảnh
               </p>
             </>
           )}

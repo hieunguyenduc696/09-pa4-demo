@@ -50,6 +50,19 @@ export const CartDetails = ({ handleNext }) => {
     setCart(newCart);
   };
 
+  const handleRemoveItem = (item) => {
+    const foundIndex = cart.items.findIndex((i) => i.id === item.id);
+
+    if (foundIndex < 0) return;
+
+    setCart({
+      ...cart,
+      items: cart.items.filter((i) => i.id !== item.id),
+      totalItems: cart.totalItems - 1,
+      totalPrice: cart.totalPrice - Number(item.details.price * item.quantity),
+    });
+  };
+
   return (
     <div className={classes["cart-container"]}>
       {cart.items.map((item) => (
@@ -90,6 +103,7 @@ export const CartDetails = ({ handleNext }) => {
                     danger
                     icon={<RiDeleteBin7Line />}
                     style={{ marginLeft: "8px" }}
+                    onClick={() => handleRemoveItem(item)}
                   />
                 </div>
               </Space>

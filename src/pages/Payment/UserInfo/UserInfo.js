@@ -4,8 +4,8 @@ import { Button, Col, Form, Input, Row, Select, Typography } from "antd";
 import { formatter } from "../../../utils";
 import { useCart } from "../../../context/cart-context";
 import { useUser } from "../../../context/user-context";
-import bigDecimal from "js-big-decimal";
 import { paymentType, shippingType } from "../../../constant";
+import bigDecimal from "js-big-decimal";
 
 const { Title, Text } = Typography;
 const { Item } = Form;
@@ -13,14 +13,22 @@ const { TextArea } = Input;
 
 export const UserInfo = ({ handlePrev, handleNext }) => {
   const { cart } = useCart();
-  const { setUser } = useUser();
+  const { user, setUser } = useUser();
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
-    console.log(values);
     setUser({ ...values });
 
     handleNext();
+  };
+
+  const initialValue = {
+    name: user.name || undefined,
+    phone: user.phone || undefined,
+    address: user.address || undefined,
+    shippingType: user.shippingType || undefined,
+    paymentType: user.paymentType || undefined,
+    note: user.note || undefined,
   };
 
   return (
@@ -28,7 +36,13 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
       <Title level={4} className={classes.title}>
         Người mua / nhận hàng
       </Title>
-      <Form form={form} onFinish={onFinish}>
+      <Form
+        form={form}
+        onFinish={onFinish}
+        layout="vertical"
+        initialValues={initialValue}
+        onValuesChange={(values) => setUser({ ...user, ...values })}
+      >
         <Row gutter={24}>
           <Col span={12}>
             <Item
