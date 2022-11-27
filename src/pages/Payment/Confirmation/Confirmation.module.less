@@ -1,17 +1,25 @@
+@import "antd/lib/style/themes/default.less";
+
 .confirmation-container {
   .title {
     margin-top: 1rem;
   }
 
-  .row {
-    img {
-      max-width: 120px;
-      filter: contrast(90%);
+  .content {
+    @media screen and (max-width: @screen-md-max) {
+      flex-direction: column-reverse;
     }
 
-    .quantity-wrapper {
-      display: flex;
-      align-items: center;
+    .row {
+      img {
+        max-width: 100px;
+        filter: contrast(90%);
+      }
+
+      .quantity-wrapper {
+        display: flex;
+        align-items: center;
+      }
     }
   }
 

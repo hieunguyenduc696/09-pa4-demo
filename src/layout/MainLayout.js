@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import classes from "./MainLayout.module.less";
 import { Header } from "../components";
+import { Footer } from "../components";
 import { Layout, Menu, Typography } from "antd";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { MainLayoutRoutes } from "../App.route";
@@ -83,6 +84,7 @@ const MainLayout = () => {
             <Outlet />
           </Layout.Content>
         </Layout>
+        <Footer />
       </Layout>
     </Layout>
   );

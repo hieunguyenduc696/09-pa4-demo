@@ -1,5 +1,6 @@
 export * from "./CustomNavigate";
 export * from "./Header";
+export * from "./Footer";
 export * from "./SearchInput";
 export * from "./AntCarousel";
 export * from "./CustomCard";

@@ -17,7 +17,7 @@ const getNotificationConfig = ({
   switch (notificationType) {
     case "Error":
       return {
-        className: clsx(classes.notitication, classes.error),
+        className: clsx(classes.notification, classes.error),
         message: <span className={classes["notification-msg"]}>{message}</span>,
         icon: <InfoCircleFilled />,
         duration: 3,
@@ -37,7 +37,7 @@ const getNotificationConfig = ({
       };
     case "Warning":
       return {
-        className: clsx(classes.notitication, classes.warning),
+        className: clsx(classes.notification, classes.warning),
         message: <span className={classes["notification-msg"]}>{message}</span>,
         icon: <WarningFilled />,
         duration: 3,
@@ -47,7 +47,7 @@ const getNotificationConfig = ({
       };
     case "Info":
       return {
-        className: clsx(classes.notitication, classes.info),
+        className: clsx(classes.notification, classes.info),
         message: <span className={classes["notification-msg"]}>{message}</span>,
         icon: <InfoCircleFilled />,
         duration: 3,

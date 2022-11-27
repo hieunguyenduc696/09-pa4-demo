@@ -40,7 +40,7 @@ export const Header = () => {
 
   return (
     <Layout.Header className={classes["top-header"]}>
-      <Space>
+      <Space className={classes["breadcrumb"]}>
         {breadcrumb.map(({ title, href }, idx) => (
           <React.Fragment key={href}>
             {idx !== 0 && <RiArrowRightSLine />}

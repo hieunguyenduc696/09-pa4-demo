@@ -31,8 +31,8 @@ export const Buy = () => {
         <FilterView filterValue={filterValue} setFilterValue={setFilterValue} />
       </div>
       <Row gutter={[24, 24]}>
-        {filterData(sliceData(data), filterValue).map((product) => (
-          <Col span={6} key={product.id}>
+        {sliceData(filterData(data, filterValue)).map((product) => (
+          <Col key={product.id} span={6} xs={24} sm={12} md={12} lg={8} xl={6}>
             <ProductCard
               title={product.title}
               description={product.description}
@@ -40,6 +40,7 @@ export const Buy = () => {
               name={product.name}
               price={product.price}
               src={product.src}
+              cat={product.category}
             />
           </Col>
         ))}

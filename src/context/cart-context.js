@@ -10,6 +10,7 @@ export const defaultCartValue = {
   items: [],
   totalItems: 0,
   totalPrice: 0,
+  disableCart: false,
 };
 
 export const CartContext = createContext(defaultCartValue);

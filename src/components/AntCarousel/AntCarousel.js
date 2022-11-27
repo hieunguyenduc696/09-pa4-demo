@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./AntCarousel.module.less";
 import { Carousel } from "antd";
 import { MAIN_IMAGE } from "../../assets";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
@@ -82,8 +83,13 @@ export const AntCarousel = () => {
   };
 
   return (
-    <Carousel arrows afterChange={onChange} {...carouselSetting}>
-      <div>
+    <Carousel
+      arrows
+      afterChange={onChange}
+      className={classes["custom-ant-carousel"]}
+      {...carouselSetting}
+    >
+      <div className={classes.wrapper}>
         <img style={contentStyle} src={MAIN_IMAGE} alt="main" />
       </div>
       <div>

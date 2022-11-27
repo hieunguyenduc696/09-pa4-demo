@@ -1,4 +1,5 @@
 @import "../../theme/colors.less";
+@import "antd/lib/style/themes/default.less";
 
 .icon {
   color: @color-text-n40;
@@ -10,13 +11,29 @@
   border: 1px solid @color-gray-p30;
   border-radius: 100px;
   max-width: 30rem;
-  width: 26rem;
+  width: 12rem;
   outline: none;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-left: 0.7rem;
+
+  @media screen and (min-width: @screen-sm-min) {
+    width: 16rem;
+  }
+
+  @media screen and (min-width: @screen-md-min) {
+    width: 18rem;
+  }
+
+  @media screen and (min-width: @screen-lg-min) {
+    width: 22rem;
+  }
+
+  @media screen and (min-width: @screen-xl-min) {
+    width: 26rem;
+  }
 
   &:focus {
     box-shadow: 0 0 0 0 #47a3ff;

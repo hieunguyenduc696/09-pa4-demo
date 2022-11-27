@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./UserInfo.module.less";
 import { Button, Col, Form, Input, Row, Select, Typography } from "antd";
 import { formatter } from "../../../utils";
@@ -18,17 +18,46 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
 
   const onFinish = (values) => {
     setUser({ ...values });
+    localStorage.setItem("userInfo", JSON.stringify({ ...values }));
 
     handleNext();
   };
 
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem("userInfo")));
+  }, []);
+
   const initialValue = {
-    name: user.name || undefined,
-    phone: user.phone || undefined,
-    address: user.address || undefined,
-    shippingType: user.shippingType || undefined,
-    paymentType: user.paymentType || undefined,
-    note: user.note || undefined,
+    name:
+      user.name ||
+      JSON.parse(localStorage.getItem("userInfo")).name ||
+      undefined,
+    phone:
+      user.phone ||
+      JSON.parse(localStorage.getItem("userInfo")).phone ||
+      undefined,
+    address:
+      user.address ||
+      JSON.parse(localStorage.getItem("userInfo")).address ||
+      undefined,
+    shippingType:
+      user.shippingType ||
+      JSON.parse(localStorage.getItem("userInfo")).shippingType ||
+      undefined,
+    paymentType:
+      user.paymentType ||
+      JSON.parse(localStorage.getItem("userInfo")).paymentType ||
+      undefined,
+    note:
+      user.note ||
+      JSON.parse(localStorage.getItem("userInfo")).note ||
+      undefined,
+  };
+
+  const handleValuesChange = (values) => {
+    setUser({ ...user, ...values });
+    console.log(values);
+    localStorage.setItem("userInfo", JSON.stringify({ ...user, ...values }));
   };
 
   return (
@@ -41,10 +70,10 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
         onFinish={onFinish}
         layout="vertical"
         initialValues={initialValue}
-        onValuesChange={(values) => setUser({ ...user, ...values })}
+        onValuesChange={handleValuesChange}
       >
         <Row gutter={24}>
-          <Col span={12}>
+          <Col span={12} xs={24} sm={12}>
             <Item
               name="name"
               label="Họ và tên"
@@ -54,19 +83,24 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
               <Input placeholder="Nguyễn Văn A" />
             </Item>
           </Col>
-          <Col span={12}>
+          <Col span={12} xs={24} sm={12}>
             <Item
               name="phone"
               label="Số điện thoại"
               required
               rules={[
                 { required: true, message: "Vui lòng nhập số điện thoại" },
+                {
+                  type: "string",
+                  len: 10,
+                  message: "Vui lòng nhâp số điện thoại hợp lệ",
+                },
               ]}
             >
               <Input placeholder="0123456789" />
             </Item>
           </Col>
-          <Col span={12}>
+          <Col span={12} xs={24} sm={12}>
             <Item
               name="address"
               label="Địa chỉ"
@@ -76,7 +110,7 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
               <Input placeholder="Nguyễn Văn Cừ, Quận 5, TP HCM" />
             </Item>
           </Col>
-          <Col span={12}>
+          <Col span={12} xs={24} sm={12}>
             <Item
               name="shippingType"
               label="Phương thức giao hàng"
@@ -97,7 +131,7 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
               />
             </Item>
           </Col>
-          <Col span={12}>
+          <Col span={12} xs={24} sm={12}>
             <Item
               name="paymentType"
               label="phương thức thanh toán"

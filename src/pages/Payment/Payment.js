@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./Payment.module.less";
 import { Empty, Steps } from "antd";
 import { items } from "./Payment.config";
@@ -8,7 +8,7 @@ import { UserInfo } from "./UserInfo";
 import { Confirmation } from "./Confirmation";
 
 export const Payment = () => {
-  const { cart } = useCart();
+  const { cart, setCart } = useCart();
   const [current, setCurrent] = useState(0);
 
   const handleNext = () => {
@@ -18,6 +18,14 @@ export const Payment = () => {
   const handlePrev = () => {
     setCurrent((prev) => --prev);
   };
+
+  useEffect(() => {
+    if (current === 2) {
+      setCart({ ...cart, disableCart: true });
+    } else {
+      setCart({ ...cart, disableCart: false });
+    }
+  }, [current]);
 
   if (cart.totalItems === 0) {
     return <Empty />;

@@ -1,6 +1,5 @@
 import React, {
   forwardRef,
-  useCallback,
   useEffect,
   useImperativeHandle,
   useMemo,
@@ -10,12 +9,11 @@ import React, {
 import classes from "./FileUploader.module.less";
 import clsx from "clsx";
 import update from "immutability-helper";
-import { Button, Progress } from "antd";
+import { Button, Image, Progress } from "antd";
 import { RiCheckFill, RiCloseFill, RiUploadCloudFill } from "react-icons/ri";
 import { Upload } from "antd";
 import { createUploadDocument } from "../../api";
 import { findIndex } from "lodash";
-import { mapFileTypeToIcon } from "../../utils";
 import { usePrevious } from "../../hooks";
 
 const { Dragger } = Upload;
@@ -110,25 +108,38 @@ const FileUploader = forwardRef(
       );
     };
 
-    const handleChange = (e) => {
+    const readFilePromise = (item) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(item.originFileObj);
+        reader.onload = () => {
+          resolve(reader.result);
+        };
+      });
+    };
+
+    const handleChange = async (e) => {
       if (refLock.current) return;
       refLock.current = true;
       const list = [];
       for (const item of e.fileList) {
-        const uploadItem = {
-          id: item.uid,
-          name: item.name,
-          fileName: "fileName",
-          mimeType: "",
-          createdAt: "",
-          updatedAt: "",
-          progress: 0,
-          file: item.originFileObj,
-          success: false,
-          error: false,
-          uploading: false,
-        };
-        list.push(uploadItem);
+        await readFilePromise(item).then((url) => {
+          const uploadItem = {
+            id: item.uid,
+            name: item.name,
+            fileName: "fileName",
+            mimeType: "",
+            createdAt: "",
+            updatedAt: "",
+            progress: 0,
+            file: item.originFileObj,
+            success: false,
+            error: false,
+            uploading: false,
+            url,
+          };
+          list.push(uploadItem);
+        });
       }
       setTotalUploadSuccess(e.fileList.length - 1);
 
@@ -140,6 +151,7 @@ const FileUploader = forwardRef(
         );
       }
 
+      console.log(newUploadItems);
       setUploadItems(newUploadItems);
 
       setTotalItems(newUploadItems.length);
@@ -195,6 +207,7 @@ const FileUploader = forwardRef(
           onChange={handleChange}
           defaultFileList={[]}
           fileList={[]}
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         >
           {children ?? (
             <>
@@ -293,10 +306,11 @@ const FileItem = ({
   return (
     <div className={classes["file-item"]}>
       <div className={classes["file-metadata"]}>
-        <img
+        <Image
           className={classes["file-icon"]}
-          src={mapFileTypeToIcon(state.file.type || "")}
+          src={data.url}
           alt="file icon"
+          preview={{ src: data.url }}
         />
         <span
           className={clsx([classes["file-name"], isError && classes["error"]])}

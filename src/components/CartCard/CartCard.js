@@ -7,6 +7,7 @@ import { useCart } from "../../context/cart-context";
 import { useNavigate } from "react-router-dom";
 import { RootPaths } from "../../constant/paths";
 import { formatter } from "../../utils/number";
+import { category } from "../../constant";
 
 const { Title, Text } = Typography;
 
@@ -14,7 +15,7 @@ export const CartCard = ({ handleClose }) => {
   const navigate = useNavigate();
   const { cart, setCart } = useCart();
 
-  const { items, totalItems, totalPrice } = cart;
+  const { items, totalItems, totalPrice, disableCart } = cart;
 
   const title =
     totalItems === 0
@@ -93,61 +94,83 @@ export const CartCard = ({ handleClose }) => {
       ) : (
         <>
           <div className={classes["item-wrapper"]}>
-            {items.map((item) => (
-              <Row
-                key={item.id}
-                gutter={[64, 40]}
-                style={{ marginBottom: "1rem" }}
+            {items
+              .slice(0, 5)
+              .filter((i) => i.quantity > 0)
+              .map((item) => (
+                <Row
+                  key={item.id}
+                  gutter={[24, 24]}
+                  style={{ marginBottom: "1rem" }}
+                >
+                  <Col span={6}>
+                    <img src={item.details.src} alt="src" />
+                  </Col>
+                  <Col span={10}>
+                    <div>
+                      <Text>{item.details.name}</Text>
+                    </div>
+                    <div>
+                      <Text>
+                        {item.details.cat === category.BOOK
+                          ? "Thể loại: "
+                          : "Chất liệu: "}
+                        <span>{item.details.description}</span>
+                      </Text>
+                    </div>
+                    <div style={{ marginTop: "0.2rem" }}>
+                      <Button
+                        size="small"
+                        shape="circle"
+                        onClick={() => handleSubtractItem(item)}
+                        disabled={disableCart}
+                      >
+                        -
+                      </Button>
+                      <Text style={{ margin: "0.6rem" }}>{item.quantity}</Text>
+                      <Button
+                        size="small"
+                        shape="circle"
+                        onClick={() => handleAddItem(item)}
+                        disabled={disableCart}
+                      >
+                        +
+                      </Button>
+                    </div>
+                  </Col>
+                  <Col span={8} style={{ textAlign: "right" }}>
+                    <div>
+                      <Button
+                        danger
+                        icon={<RiDeleteBin7Line />}
+                        shape="circle"
+                        size="medium"
+                        style={{ marginBottom: "6px" }}
+                        type="text"
+                        onClick={() => handleRemoveItem(item)}
+                        disabled={disableCart}
+                      />
+                    </div>
+                    <div>
+                      <Text type="danger">
+                        {formatter.format(item.details.price)}
+                      </Text>
+                    </div>
+                  </Col>
+                </Row>
+              ))}
+            {items.length > 5 && (
+              <Button
+                type="text"
+                onClick={() => {
+                  handleClose();
+                  navigate("/payment");
+                }}
+                style={{ color: "#27ce9f" }}
               >
-                <Col span={4}>
-                  <img src={item.details.src} alt="src" />
-                </Col>
-                <Col span={12} style={{ textAlign: "left" }}>
-                  <div>
-                    <Text>{item.details.name}</Text>
-                  </div>
-                  <div>
-                    <Text>
-                      Chất liệu: <span>{item.details.description}</span>
-                    </Text>
-                  </div>
-                  <div style={{ marginTop: "0.2rem" }}>
-                    <Button
-                      size="small"
-                      shape="circle"
-                      onClick={() => handleSubtractItem(item)}
-                    >
-                      -
-                    </Button>
-                    <Text style={{ margin: "0.6rem" }}>{item.quantity}</Text>
-                    <Button
-                      size="small"
-                      shape="circle"
-                      onClick={() => handleAddItem(item)}
-                    >
-                      +
-                    </Button>
-                  </div>
-                </Col>
-                <Col span={8} style={{ textAlign: "right" }}>
-                  <div>
-                    <Button
-                      danger
-                      icon={<RiDeleteBin7Line />}
-                      shape="circle"
-                      size="medium"
-                      style={{ marginBottom: "6px" }}
-                      onClick={() => handleRemoveItem(item)}
-                    />
-                  </div>
-                  <div>
-                    <Text type="danger">
-                      {formatter.format(item.details.price)}
-                    </Text>
-                  </div>
-                </Col>
-              </Row>
-            ))}
+                View more
+              </Button>
+            )}
           </div>
           <div className={classes["actions-price"]}>
             <Text strong>

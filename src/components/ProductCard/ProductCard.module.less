@@ -12,17 +12,25 @@
       display: flex;
       justify-content: space-around;
       padding: 0.5rem;
+      height: 150px;
 
       :global(.ant-card-meta-avatar) {
         img {
           max-width: 100px;
+          height: 110px;
         }
       }
 
       :global(.ant-card-meta-detail) {
-        .description {
-          font-weight: 600;
-          color: @color-text-n50;
+        :global(.ant-card-meta-description) {
+          h5 {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+          }
         }
       }
     }

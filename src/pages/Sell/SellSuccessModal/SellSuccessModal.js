@@ -31,14 +31,14 @@ export const SellSuccessModal = ({
       destroyOnClose
       cancelText={"Trở về trang chủ"}
       onCancel={onCancel}
-      okText={"Tiếp tục cho tặng"}
+      okText={"Tiếp tục đăng bán"}
       onOk={onOk}
     >
       <div className={classes["approve-success-modal"]}>
         <Image src={SUCCESS} preview={false} loading="lazy" />
         <p>
-          Cám ơn bạn! Shipper đã nhận được đơn hàng của bạn và sẽ lấy hàng đúng
-          hạn.
+          Đăng bán sản phẩm thành công. Vui lòng chờ đợi để admin duyệt sản
+          phẩm.
         </p>
       </div>
     </CustomModal>
