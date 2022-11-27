@@ -8,6 +8,9 @@ import {
   AO_KIEU_NU,
   VAY,
   DAM,
+  CSDL,
+  NMLT,
+  KTLT,
 } from "../../assets";
 
 export const data = [
@@ -27,7 +30,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021625",
     price: 195000,
-    category: category.BOOK,
+    category: category.SECOND_HAND,
   },
   {
     title: "Quần short nam",
@@ -35,14 +38,14 @@ export const data = [
     src: SHORT,
     name: "Regular Fit",
     id: "0021626",
-    price: 425000,
+    price: 0,
     category: category.GIVE,
   },
   {
     title: "Quần short nữ",
     description: "Cotton",
     src: SHORT_NU,
-    name: "Oversize",
+    name: "Quần short nữ",
     id: "0021627",
     price: 225000,
     category: category.SECOND_HAND,
@@ -60,9 +63,9 @@ export const data = [
     title: "Áo kiểu nam",
     description: "Nỉ",
     src: AO_KIEU_NAM,
-    name: "Oversize",
+    name: "Áo kiểu nam",
     id: "0021629",
-    price: 420000,
+    price: 0,
     category: category.GIVE,
   },
   {
@@ -72,7 +75,7 @@ export const data = [
     name: "Jim Form Slimfit",
     id: "0021630",
     price: 225000,
-    category: category.BOOK,
+    category: category.SECOND_HAND,
   },
   {
     title: "Váy",
@@ -80,7 +83,7 @@ export const data = [
     src: VAY,
     name: "Jim Form Slimfit",
     id: "0021631",
-    price: 1425000,
+    price: 0,
     category: category.GIVE,
   },
   {
@@ -91,5 +94,32 @@ export const data = [
     id: "0021632",
     price: 980000,
     category: category.SECOND_HAND,
+  },
+  {
+    title: "Nhập môn lập trình",
+    description: "Sách Nhập môn lập trình",
+    src: NMLT,
+    name: "Nhập môn lập trình",
+    id: "0021633",
+    price: 65000,
+    category: category.BOOK,
+  },
+  {
+    title: "Cơ Sở Dữ Liệu",
+    description: "Sách Cơ Sở Dữ Liệu",
+    src: CSDL,
+    name: "Cơ Sở Dữ Liệu",
+    id: "0021634",
+    price: 80000,
+    category: category.BOOK,
+  },
+  {
+    title: "Kỹ thuật lập trình",
+    description: "Sách Kỹ thuật lập trình",
+    src: KTLT,
+    name: "Kỹ thuật lập trình",
+    id: "0021635",
+    price: 100000,
+    category: category.BOOK,
   },
 ];

@@ -10,7 +10,6 @@ export { default as AO_KIEU_NAM } from "./ao_kieu_nam.webp";
 export { default as AO_KIEU_NU } from "./ao_kieu_nu.jpeg";
 export { default as VAY } from "./vay.png";
 export { default as DAM } from "./dam.jpeg";
-
 export { default as EMPTY } from "./empty.png";
 export { default as TJPG } from "./jpg.png";
 export { default as TMULTIFILE } from "./multifile.png";
@@ -23,3 +22,6 @@ export { default as STEP1 } from "./step1.png";
 export { default as STEP2 } from "./step2.png";
 export { default as STEP3 } from "./step3.png";
 export { default as SUCCESS } from "./success.png";
+export { default as NMLT } from "./nmlt.png";
+export { default as KTLT } from "./ktlt.png";
+export { default as CSDL } from "./csdl.png";

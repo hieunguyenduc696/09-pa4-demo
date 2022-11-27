@@ -24,6 +24,8 @@ export const Buy = () => {
     return d.filter((item) => item.category === category);
   };
 
+  console.log(data);
+
   return (
     <div>
       <div className={classes["top-section"]}>
@@ -31,7 +33,7 @@ export const Buy = () => {
         <FilterView filterValue={filterValue} setFilterValue={setFilterValue} />
       </div>
       <Row gutter={[24, 24]}>
-        {filterData(sliceData(data), filterValue).map((product) => (
+        {sliceData(filterData(data, filterValue)).map((product) => (
           <Col span={6} key={product.id}>
             <ProductCard
               title={product.title}
@@ -40,6 +42,7 @@ export const Buy = () => {
               name={product.name}
               price={product.price}
               src={product.src}
+              cat={product.category}
             />
           </Col>
         ))}

@@ -93,16 +93,16 @@ export const CartCard = ({ handleClose }) => {
       ) : (
         <>
           <div className={classes["item-wrapper"]}>
-            {items.map((item) => (
+            {items.slice(0, 5).map((item) => (
               <Row
                 key={item.id}
-                gutter={[64, 40]}
+                gutter={[24, 24]}
                 style={{ marginBottom: "1rem" }}
               >
-                <Col span={4}>
+                <Col span={6}>
                   <img src={item.details.src} alt="src" />
                 </Col>
-                <Col span={12} style={{ textAlign: "left" }}>
+                <Col span={10}>
                   <div>
                     <Text>{item.details.name}</Text>
                   </div>
@@ -137,6 +137,7 @@ export const CartCard = ({ handleClose }) => {
                       shape="circle"
                       size="medium"
                       style={{ marginBottom: "6px" }}
+                      type="text"
                       onClick={() => handleRemoveItem(item)}
                     />
                   </div>
@@ -148,6 +149,18 @@ export const CartCard = ({ handleClose }) => {
                 </Col>
               </Row>
             ))}
+            {items.length > 5 && (
+              <Button
+                type="text"
+                onClick={() => {
+                  handleClose();
+                  navigate("/payment");
+                }}
+                style={{ color: "#27ce9f" }}
+              >
+                View more
+              </Button>
+            )}
           </div>
           <div className={classes["actions-price"]}>
             <Text strong>

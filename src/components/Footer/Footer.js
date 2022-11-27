@@ -1,24 +1,18 @@
+import { Typography } from "antd";
 import React from "react";
-import './Footer.css';
+import { RiCopyrightLine } from "react-icons/ri";
+import classes from "./Footer.module.less";
+
+const { Text } = Typography;
 
 export const Footer = () => {
   return (
-    <div className="footer">
-      <div className="row">
-        <strong className="col">Customer Support</strong>
-        <a href="#" className="col" >Support@r3s.vn</a>
-        <a href="#" className="col" >090-000-001</a>
-      </div>
-      <div className="row">
-        <strong className="col">About Us</strong>
-        <a href="#" className="col" >How to use R3S</a>
-        <a href="#" className="col" >Q&A</a>
-      </div>
-      <div className="row">
-        <strong className="col">Connect</strong>
-        <a href="#" className="col" >Facebook</a>
-        <a href="#" className="col" >Instagram</a>
-      </div>
+    <div className={classes.footer}>
+      <RiCopyrightLine size={20} />{" "}
+      <Text className={classes.text}>
+        {" "}
+        Group 9, TKGD, 2022. All rights reserved.{" "}
+      </Text>
     </div>
   );
 };

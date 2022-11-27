@@ -4,11 +4,20 @@ import { Button, Card, Rate, Typography } from "antd";
 import { useCart } from "../../context/cart-context";
 import { openNotification } from "../AntNotification";
 import { formatter } from "../../utils/number";
+import { category } from "../../constant";
 
 const { Meta } = Card;
 const { Title, Text } = Typography;
 
-export const ProductCard = ({ title, src, description, name, id, price }) => {
+export const ProductCard = ({
+  title,
+  src,
+  description,
+  name,
+  id,
+  price,
+  cat,
+}) => {
   const { cart, setCart } = useCart();
 
   const handleAddToCart = () => {
@@ -65,13 +74,17 @@ export const ProductCard = ({ title, src, description, name, id, price }) => {
         description={
           <>
             <Title level={5}>{title}</Title>
-            <div>
-              Chất liệu:{" "}
-              <span className={classes.description}>{description}</span>
-            </div>
-            <div>{name}</div>
+            {cat !== category.BOOK && (
+              <>
+                <div>
+                  Chất liệu:{" "}
+                  <span className={classes.description}>{description}</span>
+                </div>
+                <div>{name}</div>
+              </>
+            )}
             <div>Mã số: {id}</div>
-            <Text type="danger">{formatter.format(price)}</Text>
+            <Text type="danger">{formatter.format(price) || ""}</Text>
           </>
         }
       />

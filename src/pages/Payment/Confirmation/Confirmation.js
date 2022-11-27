@@ -97,7 +97,7 @@ export const Confirmation = ({ handlePrev }) => {
         <Col span={12}>
           {cart.items.map((item) => (
             <div key={item.id}>
-              <Row className={classes.row}>
+              <Row className={classes.row} gutter={[24, 24]}>
                 <Col span={6}>
                   <img src={item.details.src} alt={item.id} />
                 </Col>

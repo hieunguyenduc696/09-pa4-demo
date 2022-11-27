@@ -67,11 +67,11 @@ export const CartDetails = ({ handleNext }) => {
     <div className={classes["cart-container"]}>
       {cart.items.map((item) => (
         <div key={item.id}>
-          <Row className={classes.row}>
-            <Col span={3}>
+          <Row className={classes.row} gutter={[24, 24]}>
+            <Col span={4}>
               <img src={item.details.src} alt={item.id} />
             </Col>
-            <Col span={18}>
+            <Col span={17}>
               <Space direction="vertical">
                 <Title level={4}>{item.details.name}</Title>
                 <Text>
