@@ -18,7 +18,7 @@ export const Home = () => {
           <CustomCard
             title="Recycle"
             src={RECYCLE}
-            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            description="Recycle, reduce waste discharged, limit environmental pollution."
             actions="Read more"
           />
         </Col>
@@ -26,7 +26,7 @@ export const Home = () => {
           <CustomCard
             title="Reshare"
             src={RESHARE}
-            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            description="Items that are useless to you but necessary for the poor."
             actions="Read more"
           />
         </Col>
@@ -34,7 +34,7 @@ export const Home = () => {
           <CustomCard
             title="Reuse"
             src={REUSE}
-            description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            description="Your old stuff can still be used(For you or for the poor)."
             actions="Read more"
           />
         </Col>

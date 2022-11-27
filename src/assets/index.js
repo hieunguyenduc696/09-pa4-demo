@@ -3,6 +3,14 @@ export { default as RECYCLE } from "./recycle.png";
 export { default as RESHARE } from "./reshare.png";
 export { default as REUSE } from "./reuse.png";
 export { default as JEAN } from "./jean.png";
+export { default as JEAN_NU } from "./jean_nu.jpeg";
+export { default as SHORT_NU } from "./short_nu.jpeg";
+export { default as SHORT } from "./short.webp";
+export { default as AO_KIEU_NAM } from "./ao_kieu_nam.webp";
+export { default as AO_KIEU_NU } from "./ao_kieu_nu.jpeg";
+export { default as VAY } from "./vay.png";
+export { default as DAM } from "./dam.jpeg";
+
 export { default as EMPTY } from "./empty.png";
 export { default as TJPG } from "./jpg.png";
 export { default as TMULTIFILE } from "./multifile.png";
