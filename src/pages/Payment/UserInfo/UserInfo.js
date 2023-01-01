@@ -29,28 +29,28 @@ export const UserInfo = ({ handlePrev, handleNext }) => {
 
   const initialValue = {
     name:
-      user.name ||
-      JSON.parse(localStorage.getItem("userInfo")).name ||
+      user?.name ||
+      JSON.parse(localStorage.getItem("userInfo"))?.name ||
       undefined,
     phone:
-      user.phone ||
-      JSON.parse(localStorage.getItem("userInfo")).phone ||
+      user?.phone ||
+      JSON.parse(localStorage.getItem("userInfo"))?.phone ||
       undefined,
     address:
-      user.address ||
-      JSON.parse(localStorage.getItem("userInfo")).address ||
+      user?.address ||
+      JSON.parse(localStorage.getItem("userInfo"))?.address ||
       undefined,
     shippingType:
-      user.shippingType ||
-      JSON.parse(localStorage.getItem("userInfo")).shippingType ||
+      user?.shippingType ||
+      JSON.parse(localStorage.getItem("userInfo"))?.shippingType ||
       undefined,
     paymentType:
-      user.paymentType ||
-      JSON.parse(localStorage.getItem("userInfo")).paymentType ||
+      user?.paymentType ||
+      JSON.parse(localStorage.getItem("userInfo"))?.paymentType ||
       undefined,
     note:
-      user.note ||
-      JSON.parse(localStorage.getItem("userInfo")).note ||
+      user?.note ||
+      JSON.parse(localStorage.getItem("userInfo"))?.note ||
       undefined,
   };
 
