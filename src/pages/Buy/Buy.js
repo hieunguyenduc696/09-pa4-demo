@@ -41,6 +41,7 @@ export const Buy = () => {
               price={product.price}
               src={product.src}
               cat={product.category}
+              size={"S"}
             />
           </Col>
         ))}

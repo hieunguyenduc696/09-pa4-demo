@@ -17,6 +17,7 @@ export const ProductCard = ({
   id,
   price,
   cat,
+  size
 }) => {
   const { cart, setCart } = useCart();
 
@@ -39,6 +40,7 @@ export const ProductCard = ({
           name,
           price,
           cat,
+          size
         },
       };
 

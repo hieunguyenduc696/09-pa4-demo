@@ -9,6 +9,7 @@ import { formatter } from "../../../utils";
 import { useNavigate } from "react-router-dom";
 import { RootPaths } from "../../../constant/paths";
 import { openNotification } from "../../../components/AntNotification";
+import { category } from "../../../constant";
 
 const { Title, Text } = Typography;
 
@@ -110,9 +111,10 @@ export const Confirmation = ({ handlePrev }) => {
                         Chất liệu:{" "}
                         <Text strong>{item.details.description}</Text>
                       </Text>
+                      {item.details.cat !== category.BOOK && (
                       <div>
                         <Text>Size: {item.details.size}</Text>
-                      </div>
+                      </div>)}
                       <div className={classes["quantity-wrapper"]}>
                         <Input defaultValue={item.quantity} disabled />
                       </div>

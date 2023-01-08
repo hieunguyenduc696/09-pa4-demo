@@ -7,6 +7,7 @@ import { SellData } from "./Sell.config";
 import { SellSuccessModal } from "./SellSuccessModal";
 import { openNotification } from "../../components";
 import { category } from "../../constant";
+import { useUser } from "../../context/user-context";
 
 const { Title, Text } = Typography;
 const { Item } = Form;
@@ -15,6 +16,8 @@ const { TextArea } = Input;
 export const Sell = () => {
   const uploaderRef = useRef(null);
   const [form] = Form.useForm();
+  const { user } = useUser();
+
   const { setIsUploading, setUploadItems, setIsError } = useFileUploader();
   const [visible, setVisible] = useState(false);
 
@@ -58,6 +61,17 @@ export const Sell = () => {
     uploaderRef.current.setUploadItems([]);
   };
 
+  const initialValue = {
+    name:
+      user?.name ||
+      JSON.parse(localStorage.getItem("userInfo"))?.name ||
+      undefined,
+    phone:
+      user?.phone ||
+      JSON.parse(localStorage.getItem("userInfo"))?.phone ||
+      undefined,
+  };
+
   return (
     <div className={classes.ctn}>
       <Title level={3} className={classes.title}>
@@ -81,7 +95,7 @@ export const Sell = () => {
           />
         </Col>
         <Col span={12} xs={24} md={12}>
-          <Form form={form} onFinish={onFinish} layout="vertical">
+          <Form form={form} onFinish={onFinish} layout="vertical" initialValues={initialValue}>
             <Row gutter={24}>
               <Col span={12} xs={24} sm={12}>
                 <Item
@@ -90,7 +104,9 @@ export const Sell = () => {
                   required
                   rules={[{ required: true, message: "Vui lòng nhập họ tên" }]}
                 >
-                  <Input placeholder="Nguyễn Văn A" />
+                  <Input
+                    placeholder="Nguyễn Văn A"
+                  />
                 </Item>
               </Col>
               <Col span={12} xs={24} sm={12}>
@@ -107,7 +123,9 @@ export const Sell = () => {
                     },
                   ]}
                 >
-                  <Input placeholder="0123456789" />
+                  <Input
+                    placeholder="0123456789"
+                  />
                 </Item>
               </Col>
               <Col span={12} xs={24} sm={12}>

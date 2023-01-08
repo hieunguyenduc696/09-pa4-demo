@@ -17,6 +17,7 @@ import { GiveData } from "./Give.config";
 import { GiveSuccessModal } from "./GiveSuccessModal";
 import { openNotification } from "../../components";
 import { category } from "../../constant";
+import { useUser } from "../../context/user-context";
 
 const { Title, Text } = Typography;
 const { Item } = Form;
@@ -24,6 +25,8 @@ const { Item } = Form;
 export const Give = () => {
   const uploaderRef = useRef(null);
   const [form] = Form.useForm();
+  const { user } = useUser();
+
   const { setIsUploading, setUploadItems, setIsError } = useFileUploader();
   const [visible, setVisible] = useState(false);
 
@@ -67,6 +70,18 @@ export const Give = () => {
     uploaderRef.current.setUploadItems([]);
   };
 
+  const initialValue = {
+    name:
+      user?.name ||
+      JSON.parse(localStorage.getItem("userInfo"))?.name ||
+      undefined,
+    phone:
+      user?.phone ||
+      JSON.parse(localStorage.getItem("userInfo"))?.phone ||
+      undefined,
+  };
+
+
   return (
     <div className={classes.ctn}>
       <Title level={3} className={classes.title}>
@@ -90,7 +105,7 @@ export const Give = () => {
           />
         </Col>
         <Col span={12} xs={24} md={12}>
-          <Form form={form} onFinish={onFinish} layout="vertical">
+          <Form form={form} onFinish={onFinish} layout="vertical" initialValues={initialValue}>
             <Row gutter={24}>
               <Col span={12} xs={24} sm={12}>
                 <Item
